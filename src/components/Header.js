@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react"
 import Logo from "../assets/logo.png"
- const Header = () => {
+
+const Header = () => {
   const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")) || "medium");
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
-    document.documentElement.removeAttribute("class");
-    document.documentElement.classList.add(theme);
+    document.body.removeAttribute("class");
+    document.body.classList.add(theme);
   }, [theme]);
 
   return (
